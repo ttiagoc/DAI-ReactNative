@@ -4,12 +4,10 @@ import {
   StyleSheet,
   Text,
   View,
-  ImageBackground,
   SafeAreaView,
   TouchableOpacity,
   Pressable,
   TextInput,
-  Button,
   Image,
 } from "react-native";
 
@@ -17,15 +15,14 @@ export default function App() {
   const [name, setName] = useState("");
   return (
     <>
-      <StatusBar style="dark"></StatusBar>
-
+      <StatusBar style="light-content"></StatusBar>
+      
       <SafeAreaView style={styles.container}>
         <Image
-          source={{
-            uri: "https://images.squarespace-cdn.com/content/v1/61e5b4d4e869ca1e5b042038/8dfece0c-1dd9-42b0-b832-54f9bdfb9f0b/Yellow+Only+Logo-01.png",
-          }}
-          width={"100%"}
-          height={200}
+          source={
+            require("./src/images/welcomeImage.png")
+          }
+         style={styles.imagen}
         ></Image>
         <Text style={styles.title}>Enter your name</Text>
         <TextInput
@@ -35,12 +32,12 @@ export default function App() {
           style={styles.input}
         />
         <View style={styles.buttonContainer}>
-          <Pressable
+          <TouchableOpacity
             onPress={() => alert(`Hello, ${name}!`)}
             style={styles.button}
           >
             <Text style={styles.text}>Say hello</Text>
-          </Pressable>
+          </TouchableOpacity>
 
           <Pressable
             onPress={() => setName("")}
@@ -55,14 +52,13 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    height: "90%",
-    paddingTop: "10%",
+  container: {  
+    paddingTop: "5%",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor:'silver'
-  },  
+    backgroundColor: "silver",
+  },
   title: {
     fontSize: 20,
     color: "black",
@@ -98,4 +94,8 @@ const styles = StyleSheet.create({
   text: {
     color: "white",
   },
+  imagen:{
+    width: 370,
+    height: 200
+  }
 });
