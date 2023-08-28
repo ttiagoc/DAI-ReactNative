@@ -7,6 +7,7 @@ import Login from "./src/screens/Login";
 import GreenScreen from "./src/screens/GreenScreen";
 import RedScreen from "./src/screens/RedScreen";
 import BlueScreen from "./src/screens/BlueScreen";
+import Home from "./src/screens/Home";
 
 export default function App() {
 
@@ -24,6 +25,7 @@ export default function App() {
             component={Login}
             options={{ title: "Welcome" }}
           />
+          <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="GreenScreen" component={GreenScreen} />
           <Stack.Screen name="RedScreen" component={RedScreen} />
           <Stack.Screen name="BlueScreen" component={BlueScreen} />

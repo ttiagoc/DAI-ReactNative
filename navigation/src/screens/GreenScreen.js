@@ -17,7 +17,7 @@ export default function GreenScreen({navigation}) {
               <Button
       title="Go Home"
       onPress={() =>
-        navigation.navigate('Login')
+        navigation.navigate('Home')
       }
     />
     

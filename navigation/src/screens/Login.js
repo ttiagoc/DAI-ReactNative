@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -6,46 +6,42 @@ import {
   Image,
   TextInput,
   Pressable,
-  Button
+  Button,
+  BackHandler,
+  Alert
 } from "react-native";
 import carrascal from "../../assets/carrascal.png";
+import Menu from "../components/Menu";
 
 export default function Login({navigation
 }) {
+
+    const [password, setPassword] = useState("");
+
+    const HandleLogin = () =>{
+
+      if (password.toLowerCase() === "tiago") {
+        navigation.navigate('Home')
+      }else{
+        alert('CONTRASEÑA INCORRECTA')
+      }
+
+    }
+
+
   return (
     <>
       <View style={styles.container}>
         <Image source={carrascal} style={styles.image} />
         <View style={{ paddingTop: 50, textAlign: "center" }}>
           <TextInput placeholder="nombre" style={styles.input}></TextInput>
-          <TextInput placeholder="contraseña" style={styles.input}></TextInput>
-          <Pressable style={styles.button}>
+          <TextInput placeholder="contraseña" style={styles.input} onChangeText={setPassword} name="password"></TextInput>
+          <Pressable style={styles.button} onPress={HandleLogin}>
             <Text>AVANZAR</Text>
           </Pressable>
         </View>
 
-        <View style={styles.navigator}>
-
-        <Button style={{width:30}}
-      title="Go to Blue Screen"
-      onPress={() =>
-        navigation.navigate('BlueScreen')
-      }
-    />
-    <Button style={{width:40}}
-      title="Go to Red Screen"
-      onPress={() =>
-        navigation.navigate('RedScreen')
-      }
-    />
-    <Button style={{width:40}}
-      title="Go to Green Screen"
-      onPress={() =>
-        navigation.navigate('GreenScreen')
-      }
-    />
-    </View>
-
+   
 
       </View>
     </>
@@ -80,9 +76,5 @@ const styles = StyleSheet.create({
     width: 200,
     borderRadius: 5,
   },
-  navigator:{
-    flex:3,
-    alignItems:'center',
-    flexDirection:'row'
-  }
+ 
 });

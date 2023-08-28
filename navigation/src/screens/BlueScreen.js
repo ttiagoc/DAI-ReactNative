@@ -16,7 +16,7 @@ export default function BlueScreen({navigation}) {
               <Button
       title="Go Home"
       onPress={() =>
-        navigation.navigate('Login')
+        navigation.navigate('Home')
       }
     />
     
