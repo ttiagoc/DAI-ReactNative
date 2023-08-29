@@ -9,37 +9,29 @@ import {
   Button,
 } from "react-native";
 
-import tres from '../../assets/tres.jpg'
+import tres from "../../assets/tres.jpg";
 
 export default function Menu({ navigation }) {
   return (
-
     <View style={styles.container}>
 
       <View style={styles.container2}>
-        <Button
-          style={styles.button}
-          title="1"
-          onPress={() => navigation.navigate("BlueScreen")}
-        />
+        <Pressable style={styles.button} onPress={() => navigation.navigate("BlueScreen")} >
+          <Text style={{ color: "white", fontSize:20 }}>1</Text>
+        </Pressable>
       </View>
 
       <View style={styles.container2}>
-        <Button
-          style={styles.button}
-          title="2"
-          onPress={() => navigation.navigate("RedScreen")}
-        />
+        <Pressable style={styles.button} onPress={() => navigation.navigate("GreenScreen")}>
+          <Text style={{ color: "white", fontSize:20 }}>2</Text>
+        </Pressable>
       </View>
 
       <View style={styles.container2}>
-        <Button
-          style={styles.button}
-          title='3'
-          onPress={() => navigation.navigate("GreenScreen")}
-        ></Button>
+        <Pressable style={styles.button} onPress={() => navigation.navigate("RedScreen")}>
+          <Text style={{ color: "white", fontSize:20 }}>3</Text>
+        </Pressable>
       </View>
-
     </View>
   );
 }
@@ -48,16 +40,20 @@ const styles = StyleSheet.create({
     flex: 3,
     flexDirection: "row",
     justifyContent: "center",
-    width:'100%',
-    position: 'absolute',
-    bottom: 0
+    width: "100%",
+    position: "absolute",
+    bottom: 0,
+    height:65
   },
-  container2:{
-    width:'33%',
-    height: '37px',
+  container2: {
+    width: "33%",
+    borderWidth:1,
 
   },
-  button:{
-    height:'100%'
-  }
+  button: {
+    backgroundColor: "purple",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });

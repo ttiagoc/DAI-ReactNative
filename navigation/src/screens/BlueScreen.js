@@ -14,13 +14,8 @@ export default function BlueScreen({navigation}) {
         <>
           <View style={styles.container}>
               <Text style={{fontSize:40}}>BLUE SCREEN</Text>
-              <Button
-      title="Go Home"
-      onPress={() =>
-        navigation.navigate('Home')
-      }
-    />
-    <Menu navigation={navigation}></Menu>
+              <Button title="Go Home" onPress={() => navigation.navigate('Home')} />
+              <Menu navigation={navigation}></Menu>
           </View>
         </>
       );
@@ -28,12 +23,11 @@ export default function BlueScreen({navigation}) {
     
     const styles = StyleSheet.create({
       container: {
-        
         flex: 1,
         backgroundColor: "blue",
         alignItems: "center",
         justifyContent:'center',
       },
-     
+      
     });
     

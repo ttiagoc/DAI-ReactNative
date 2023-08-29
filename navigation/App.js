@@ -8,6 +8,9 @@ import GreenScreen from "./src/screens/GreenScreen";
 import RedScreen from "./src/screens/RedScreen";
 import BlueScreen from "./src/screens/BlueScreen";
 import Home from "./src/screens/Home";
+import {
+  SafeAreaProvider,
+} from 'react-native-safe-area-context';
 
 export default function App() {
 
@@ -15,6 +18,7 @@ export default function App() {
 
   return (
     <>
+    <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName="Login"
@@ -31,6 +35,7 @@ export default function App() {
           <Stack.Screen name="BlueScreen" component={BlueScreen} />
         </Stack.Navigator>
       </NavigationContainer>
+    </SafeAreaProvider>
     </>
   );
 }
