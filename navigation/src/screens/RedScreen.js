@@ -8,6 +8,7 @@ import {
     Pressable,
     Button
   } from "react-native";
+import Menu from '../components/Menu';
 export default function RedScreen({navigation}) {
     return (
         <>
@@ -19,6 +20,7 @@ export default function RedScreen({navigation}) {
         navigation.navigate('Home')
       }
     />
+    <Menu navigation={navigation}></Menu>
           </View>
         </>
       );
@@ -26,7 +28,7 @@ export default function RedScreen({navigation}) {
     
     const styles = StyleSheet.create({
       container: {
-        marginTop: 20,
+        
         flex: 1,
         backgroundColor: "red",
         alignItems: "center",

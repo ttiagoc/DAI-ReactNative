@@ -1,55 +1,63 @@
-import React from 'react'
+import React from "react";
 import {
-    StyleSheet,
-    Text,
-    View,
-    Image,
-    TextInput,
-    Pressable,
-    Button
-  } from "react-native";
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TextInput,
+  Pressable,
+  Button,
+} from "react-native";
 
-export default function Menu({navigation}) {
+import tres from '../../assets/tres.jpg'
+
+export default function Menu({ navigation }) {
   return (
-    <View style={styles.navigator}>
 
-<Button style={[styles.button, {padding:20}]}
-  title="Go to Blue Screen"
-  onPress={() =>
-    navigation.navigate('BlueScreen')
-    
-  }
-  
-/>
-<Button style={[styles.button, {padding:20}]}
-  title="Go to Red Screen"
-  onPress={() =>
-    navigation.navigate('RedScreen')
-  }
-/>
-<Button style={[styles.button, {padding:20}]}
-  title="Go to Green Screen"
-  onPress={() =>
-    navigation.navigate('GreenScreen')
-  }
-/>
-</View>
+    <View style={styles.container}>
 
-  )
-}const styles = StyleSheet.create({
-    
-navigator:{
-    flex:3,
-    alignItems:'center',
-    justifyContent:'center',
-    flexDirection:'column'
+      <View style={styles.container2}>
+        <Button
+          style={styles.button}
+          title="1"
+          onPress={() => navigation.navigate("BlueScreen")}
+        />
+      </View>
+
+      <View style={styles.container2}>
+        <Button
+          style={styles.button}
+          title="2"
+          onPress={() => navigation.navigate("RedScreen")}
+        />
+      </View>
+
+      <View style={styles.container2}>
+        <Button
+          style={styles.button}
+          title='3'
+          onPress={() => navigation.navigate("GreenScreen")}
+        ></Button>
+      </View>
+
+    </View>
+  );
+}
+const styles = StyleSheet.create({
+  container: {
+    flex: 3,
+    flexDirection: "row",
+    justifyContent: "center",
+    width:'100%',
+    position: 'absolute',
+    bottom: 0
+  },
+  container2:{
+    width:'33%',
+    height: '37px',
+
   },
   button:{
-    width:20,
-    padding:20,
-    margin:20
-    
+    height:'100%'
   }
-
-})
-
+});

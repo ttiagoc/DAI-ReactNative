@@ -8,6 +8,7 @@ import {
     Pressable,
     Button
   } from "react-native";
+import Menu from '../components/Menu';
 export default function GreenScreen({navigation}) {
     return (
         <>
@@ -20,7 +21,7 @@ export default function GreenScreen({navigation}) {
         navigation.navigate('Home')
       }
     />
-    
+      <Menu navigation={navigation}></Menu>
           </View>
         </>
       );
@@ -28,7 +29,7 @@ export default function GreenScreen({navigation}) {
     
     const styles = StyleSheet.create({
       container: {
-        marginTop: 20,
+        
         flex: 1,
         backgroundColor: "green",
         alignItems: "center",

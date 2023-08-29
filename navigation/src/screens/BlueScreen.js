@@ -8,6 +8,7 @@ import {
     Pressable,
     Button
   } from "react-native";
+import Menu from '../components/Menu';
 export default function BlueScreen({navigation}) {
     return (
         <>
@@ -19,7 +20,7 @@ export default function BlueScreen({navigation}) {
         navigation.navigate('Home')
       }
     />
-    
+    <Menu navigation={navigation}></Menu>
           </View>
         </>
       );
@@ -27,7 +28,7 @@ export default function BlueScreen({navigation}) {
     
     const styles = StyleSheet.create({
       container: {
-        marginTop: 20,
+        
         flex: 1,
         backgroundColor: "blue",
         alignItems: "center",

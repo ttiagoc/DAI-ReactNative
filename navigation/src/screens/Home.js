@@ -6,20 +6,23 @@ import {
     Image,
     TextInput,
     Pressable,
-    Button
+    Button,
+    SafeAreaView,
+    StatusBar
   } from "react-native";
+
 import Menu from '../components/Menu';
 
 
 export default function Home ({navigation}) {
   return (
     <>
-
-        <View style={styles.container}>
+        <StatusBar></StatusBar>
+        <SafeAreaView style={styles.container}>
 
             <Text style={styles.text}>HOME</Text>
             <Menu navigation={navigation}/>
-        </View>
+        </SafeAreaView>
 
     
     </>
@@ -28,11 +31,11 @@ export default function Home ({navigation}) {
 
 const styles = StyleSheet.create({
     container: {
-      marginTop: 20,
       flex: 1,
       backgroundColor: "grey",
       alignItems: "center",
-      justifyContent:'center'
+      justifyContent:'center',
+      height: '100%'
     },
     text:{
         fontSize:30,

@@ -20,7 +20,7 @@ export default function Login({navigation
 
     const HandleLogin = () =>{
 
-      if (password.toLowerCase() === "tiago") {
+      if (password.toLowerCase() !== "tiago") {
         navigation.navigate('Home')
       }else{
         alert('CONTRASEÑA INCORRECTA')
@@ -71,10 +71,13 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 20,
     justifyContent: "center",
-    backgroundColor: "red",
+    alignItems:'center',
+    backgroundColor: "#f1f1f1",
     height: 40,
     width: 200,
     borderRadius: 5,
+    borderWidth: 3,
+    borderColor: 'black'
   },
  
 });
