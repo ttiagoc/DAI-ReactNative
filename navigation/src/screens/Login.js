@@ -25,8 +25,8 @@ export default function Login({navigation
     const HandleLogin = () =>{
 
       if (password.toLowerCase() === "tiago" && name.toLowerCase() === 'forni') {
-        password.value === ""
-        name.value === ""
+        setName("")
+        setPassword("")
         navigation.navigate('Home')
       }else{
         alert('USUARIO O CONTRASEÑA INCORRECTA')
@@ -37,14 +37,11 @@ export default function Login({navigation
 
   return (
     <>
-   <ScrollView
-      contentContainerStyle={styles.container}
-      keyboardShouldPersistTaps="handled"
-    >
+   <KeyboardAvoidingView style={styles.container} enabled>
         <Image source={carrascal} style={styles.image} />
         <View style={{ paddingTop: 50, textAlign: "center" }}>
-          <TextInput placeholder="nombre" style={styles.input} onChangeText={setName} name="name"></TextInput>
-          <TextInput placeholder="contraseña" style={styles.input} onChangeText={setPassword} name="password"></TextInput>
+          <TextInput placeholder="nombre" style={styles.input} onChangeText={setName} name="name" value={name}></TextInput>
+          <TextInput placeholder="contraseña" style={styles.input} onChangeText={setPassword} name="password" value={password}></TextInput>
     
           <BotonReutilizable texto={"AVANZAR"} onPress={HandleLogin} style={styles.button}></BotonReutilizable>
 
@@ -52,7 +49,7 @@ export default function Login({navigation
 
    
 
-      </ScrollView>
+      </KeyboardAvoidingView>
     </>
   );
 }
