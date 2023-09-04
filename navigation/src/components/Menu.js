@@ -3,22 +3,20 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
-  TextInput,
   Pressable,
-  Button,
 } from "react-native";
-
-import tres from "../../assets/tres.jpg";
+import BotonReutilizable from "./BotonReutilizable";
 
 export default function Menu({ navigation }) {
   return (
     <View style={styles.container}>
 
       <View style={styles.container2}>
-        <Pressable style={styles.button} onPress={() => navigation.navigate("BlueScreen")} >
+       <Pressable style={styles.button} onPress={() => navigation.navigate("BlueScreen")} >
           <Text style={{ color: "white", fontSize:20 }}>1</Text>
-        </Pressable>
+      </Pressable>
+
+        
       </View>
 
       <View style={styles.container2}>

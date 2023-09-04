@@ -8,10 +8,13 @@ import {
   Pressable,
   Button,
   BackHandler,
-  Alert
+  Alert,
+  KeyboardAvoidingView,
+  ScrollView
 } from "react-native";
 import carrascal from "../../assets/carrascal.png";
-import Menu from "../components/Menu";
+import BotonReutilizable from "../components/BotonReutilizable";
+
 
 export default function Login({navigation
 }) {
@@ -22,6 +25,8 @@ export default function Login({navigation
     const HandleLogin = () =>{
 
       if (password.toLowerCase() === "tiago" && name.toLowerCase() === 'forni') {
+        password.value === ""
+        name.value === ""
         navigation.navigate('Home')
       }else{
         alert('USUARIO O CONTRASEÑA INCORRECTA')
@@ -32,19 +37,22 @@ export default function Login({navigation
 
   return (
     <>
-      <View style={styles.container}>
+   <ScrollView
+      contentContainerStyle={styles.container}
+      keyboardShouldPersistTaps="handled"
+    >
         <Image source={carrascal} style={styles.image} />
         <View style={{ paddingTop: 50, textAlign: "center" }}>
           <TextInput placeholder="nombre" style={styles.input} onChangeText={setName} name="name"></TextInput>
           <TextInput placeholder="contraseña" style={styles.input} onChangeText={setPassword} name="password"></TextInput>
-          <Pressable style={styles.button} onPress={HandleLogin}>
-            <Text>AVANZAR</Text>
-          </Pressable>
+    
+          <BotonReutilizable texto={"AVANZAR"} onPress={HandleLogin} style={styles.button}></BotonReutilizable>
+
         </View>
 
    
 
-      </View>
+      </ScrollView>
     </>
   );
 }

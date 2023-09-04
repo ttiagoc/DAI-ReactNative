@@ -3,9 +3,6 @@ import {
     StyleSheet,
     Text,
     View,
-    Image,
-    TextInput,
-    Pressable,
     Button
   } from "react-native";
 import Menu from '../components/Menu';
