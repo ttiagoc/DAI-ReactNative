@@ -1,54 +1,58 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   StyleSheet,
   Text,
   View,
   Image,
   TextInput,
-  Pressable,
-  Button,
-  BackHandler,
-  Alert,
   KeyboardAvoidingView,
-  ScrollView
+  Alert
 } from "react-native";
 import carrascal from "../../assets/carrascal.png";
 import BotonReutilizable from "../components/BotonReutilizable";
 
 
-export default function Login({navigation
-}) {
+export default function Login({ navigation }) {
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [passwordRef, setPasswordRef] = useRef()
 
-    const [password, setPassword] = useState("");
-    const [name, setName] = useState("");
-
-    const HandleLogin = () =>{
-
-      if (password.toLowerCase() === "tiago" && name.toLowerCase() === 'forni') {
-        setName("")
-        setPassword("")
-        navigation.navigate('Home')
-      }else{
-        alert('USUARIO O CONTRASEÑA INCORRECTA')
-      }
-
+  const HandleLogin = () => {
+    if (password.toLowerCase() === "tiago" && name.toLowerCase() === "forni") {
+      setName("");
+      setPassword("");
+      navigation.navigate("Home");
+    } else {
+      Alert.alert(Mensaje,"USUARIO O CONTRASEÑA INCORRECTA");
     }
-
+  };
 
   return (
     <>
-   <KeyboardAvoidingView style={styles.container} enabled>
+      <KeyboardAvoidingView style={styles.container} enabled>
         <Image source={carrascal} style={styles.image} />
         <View style={{ paddingTop: 50, textAlign: "center" }}>
-          <TextInput placeholder="nombre" style={styles.input} onChangeText={setName} name="name" value={name}></TextInput>
-          <TextInput placeholder="contraseña" style={styles.input} onChangeText={setPassword} name="password" value={password}></TextInput>
-    
-          <BotonReutilizable texto={"AVANZAR"} onPress={HandleLogin} style={styles.button}></BotonReutilizable>
+          <TextInput
+            placeholder="nombre"
+            style={styles.input}
+            onChangeText={setName}
+            name="name"
+            value={name}
+          ></TextInput>
+          <TextInput
+            placeholder="contraseña"
+            style={styles.input}
+            onChangeText={setPassword}
+            name="password"
+            value={password}
+          ></TextInput>
 
+          <BotonReutilizable
+            texto={"AVANZAR"}
+            onPress={HandleLogin}
+            style={styles.button}
+          ></BotonReutilizable>
         </View>
-
-   
-
       </KeyboardAvoidingView>
     </>
   );
@@ -56,11 +60,11 @@ export default function Login({navigation
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop:20,
+    paddingTop: 20,
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    backgroundColor:'#F3E5AB'
+    backgroundColor: "#F3E5AB",
   },
   input: {
     borderColor: "black",
@@ -69,7 +73,7 @@ const styles = StyleSheet.create({
     height: "auto",
     padding: 10,
     marginTop: 10,
-    backgroundColor:'white'
+    backgroundColor: "white",
   },
   image: {
     marginTop: 50,
@@ -79,13 +83,12 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 20,
     justifyContent: "center",
-    alignItems:'center',
+    alignItems: "center",
     backgroundColor: "#F8DE7E",
     height: 40,
     width: 200,
     borderRadius: 5,
     borderWidth: 3,
-    borderColor: 'black'
+    borderColor: "black",
   },
- 
 });
