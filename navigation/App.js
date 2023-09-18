@@ -8,9 +8,8 @@ import GreenScreen from "./src/screens/GreenScreen";
 import RedScreen from "./src/screens/RedScreen";
 import BlueScreen from "./src/screens/BlueScreen";
 import Home from "./src/screens/Home";
-import {
-  SafeAreaProvider,
-} from 'react-native-safe-area-context';
+import SplashScreen from "./src/screens/SplashScreen";
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 export default function App() {
 
@@ -21,14 +20,15 @@ export default function App() {
     <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Login"
-          screenOptions={{ orientation: "portrait", headerShown: false }}
+          initialRouteName="SplashScreen"
+          screenOptions={{ orientation: "portrait", headerShown: false, animation: 'none'}}
         >
           <Stack.Screen
             name="Login"
             component={Login}
             options={{ title: "Welcome" }}
           />
+          <Stack.Screen name="SplashScreen" component={SplashScreen} />
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="GreenScreen" component={GreenScreen} />
           <Stack.Screen name="RedScreen" component={RedScreen} />

@@ -23,7 +23,7 @@ export default function Login({ navigation }) {
       setPassword("");
       navigation.navigate("Home");
     } else {
-      Alert.alert(Mensaje,"USUARIO O CONTRASEÑA INCORRECTA");
+      Alert.alert("USUARIO O CONTRASEÑA INCORRECTA");
     }
   };
 
