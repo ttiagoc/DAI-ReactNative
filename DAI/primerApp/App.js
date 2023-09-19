@@ -1,101 +1,34 @@
-import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  TouchableOpacity,
-  Pressable,
-  TextInput,
-  Image,
-} from "react-native";
+import { StyleSheet } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Login from "./src/screens/Login";
+import GreenScreen from "./src/screens/GreenScreen";
+import RedScreen from "./src/screens/RedScreen";
+import BlueScreen from "./src/screens/BlueScreen";
+import Home from "./src/screens/Home";
+import SplashScreen from "./src/screens/SplashScreen";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function App() {
-  const [name, setName] = useState("");
+  const Stack = createNativeStackNavigator();
+
   return (
     <>
-      <StatusBar style="light-content"></StatusBar>
+     
+        <NavigationContainer>
+          <Stack.Navigator
+            initialRouteName="SplashScreen"
+            screenOptions={{ orientation: "portrait", headerShown: false }}
+          >
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="SplashScreen" component={SplashScreen} />
+            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="GreenScreen" component={GreenScreen} />
+            <Stack.Screen name="RedScreen" component={RedScreen} />
+            <Stack.Screen name="BlueScreen" component={BlueScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
       
-      <SafeAreaView style={styles.container}>
-        <Image
-          source={
-            require("./src/images/welcomeImage.png")
-          }
-         style={styles.imagen}
-        ></Image>
-        <Text style={styles.title}>Enter your name</Text>
-        <TextInput
-          placeholder="Enter your name"
-          value={name}
-          onChangeText={setName}
-          style={styles.input}
-        />
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            onPress={() => alert(`Hello, ${name}!`)}
-            style={styles.button}
-          >
-            <Text style={styles.text}>Say hello</Text>
-          </TouchableOpacity>
-
-          <Pressable
-            onPress={() => setName("")}
-            style={[styles.button, { backgroundColor: "red" }]}
-          >
-            <Text style={[styles.text]}>Reset</Text>
-          </Pressable>
-        </View>
-      </SafeAreaView>
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {  
-    paddingTop: "5%",
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "silver",
-  },
-  title: {
-    fontSize: 20,
-    color: "black",
-    margin: 10,
-  },
-  input: {
-    width: 200,
-    height: 40,
-    borderRadius: 5,
-    borderColor: "black",
-    borderWidth: 1,
-    padding: 10,
-  },
-  button: {
-    width: 175,
-    height: 40,
-    borderRadius: 5,
-    backgroundColor: "green",
-    color: "white",
-    padding: 10,
-    alignItems: "center",
-    margin: 5,
-  },
-  buttonContainer: {
-    height: 80,
-    width: 175,
-    flex: 2,
-    flexDirection: "column",
-    paddingTop: 10,
-    justifyContent: "flex-start",
-    alignItems: "center",
-  },
-  text: {
-    color: "white",
-  },
-  imagen:{
-    width: 370,
-    height: 200
-  }
-});
