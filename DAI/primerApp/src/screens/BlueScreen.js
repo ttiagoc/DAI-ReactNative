@@ -10,17 +10,17 @@ export default function BlueScreen({ navigation }) {
 
   const VerAlmacenamiento = async () => {
     let contenido = await usuarioService.obtenerCredenciales()
-    Alert("Almacenamiento: " + JSON.stringify(contenido));
-    console.log("Almacenamiento: " + JSON.stringify(contenido));
+
+    Alert.alert("Almacenamiento: " , JSON.stringify(contenido));
+
   };
 
   return (
     <>
       <View style={styles.container}>
         <Text style={{ fontSize: 40 }}>BLUE SCREEN</Text>
-        <Button title="Go Home" onPress={() => navigation.navigate("Home")} />
-      {/* <Button onPress={VerAlmacenamiento}title="Ver Async Storage" style={styles.button}></Button> */}
-        <BotonReutilizable onPress={VerAlmacenamiento} texto="Ver Almacenamiento" style={styles.button}></BotonReutilizable>
+        <BotonReutilizable onPress={VerAlmacenamiento} style={styles.button} texto="Ver Almacenamiento" ></BotonReutilizable>
+      
         <Menu navigation={navigation}></Menu>
       </View>
     </>
@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 20,
+    marginBottom: 20,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "brown",

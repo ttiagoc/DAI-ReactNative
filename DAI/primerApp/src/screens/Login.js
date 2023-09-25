@@ -18,12 +18,12 @@ export default function BlueScreen({navigation}) {
     if (nombre.toLowerCase() !== '' && clave.toLowerCase() !== ''){
       if (await usuarioService.login(nombre.toLowerCase(), clave.toLowerCase())){
         await usuarioService.almacenarCredenciales(nombre, clave);
-        navigation.navigate('Home');
+        navigation.navigate('BlueScreen');
       }else{
-        Alert.alert('Usuario o contraseña incorrectos');
+        Alert.alert("ADVERTENCIA",'Usuario o contraseña incorrectos');
       }      
     }else{
-      Alert.alert('Complete los campos para ingresar');
+      Alert.alert("ADVERTENCIA",'Complete los campos para ingresar');
     }
   }
 

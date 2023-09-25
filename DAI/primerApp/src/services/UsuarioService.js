@@ -62,9 +62,11 @@ export default class UsuarioService{
     }; 
 
     obtenerCredenciales = async() => { 
+     
         let storedUserName = await AsyncStorage.getItem(USERNAME_KEY);
         let storedPassword = await AsyncStorage.getItem(PASSWORD_KEY);
         const returnValue = {'userName':storedUserName, 'password':storedPassword}; 
+   
         return returnValue; 
     }; 
 } 

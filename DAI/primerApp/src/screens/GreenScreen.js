@@ -3,22 +3,35 @@ import {
     StyleSheet,
     Text,
     View,
-    Button
+    Button,
+    Alert,
+    ToastAndroid
   } from "react-native";
 import Menu from '../components/Menu';
+import UsuarioService from "../services/UsuarioService";
+import BotonReutilizable from '../components/BotonReutilizable';
+
 
 export default function GreenScreen({navigation}) {
+
+  let usuarioService = new UsuarioService()
+
+  const EliminarAsyncStorage = async () => {
+
+    await usuarioService.eliminarCredenciales()
+    //Alert.alert("AVISO:", "SE HA ELIMINADO EL STORAGE")
+    ToastAndroid.show('SE HA ELIMINADO EL STORAGE', ToastAndroid.SHORT);
+
+  }
+
+
     return (
         <>
           <View style={styles.container}>
               <Text style={{fontSize:40}}>GREEN SCREEN</Text>
 
-              <Button
-      title="Go Home"
-      onPress={() =>
-        navigation.navigate('Home')
-      }
-    />
+      <BotonReutilizable onPress={EliminarAsyncStorage} style={styles.button} texto={"Eliminar Almacenamiento"}></BotonReutilizable>
+             
       <Menu navigation={navigation}></Menu>
           </View>
         </>
@@ -32,6 +45,20 @@ export default function GreenScreen({navigation}) {
         backgroundColor: "green",
         alignItems: "center",
         justifyContent:'center',
+      
+      },
+      button: {
+        marginTop: 20,
+        marginBottom: 20,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "brown",
+        height: 50,
+        width: 200,
+        borderRadius: 5,
+        borderWidth: 3,
+        borderColor: "black",
+        fontWeight: "bold",
       },
      
     });

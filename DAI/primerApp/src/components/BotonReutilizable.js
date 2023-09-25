@@ -9,9 +9,7 @@ const BotonReutilizable = ({onPress, style, texto}) =>
 
     const HandleOnPress = () => {
 
-        console.log("En HandleOnPress()")
-        console.log(onPress)
-      
+
             onPress()
         
         

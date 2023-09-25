@@ -5,7 +5,6 @@ import Login from "./src/screens/Login";
 import GreenScreen from "./src/screens/GreenScreen";
 import RedScreen from "./src/screens/RedScreen";
 import BlueScreen from "./src/screens/BlueScreen";
-import Home from "./src/screens/Home";
 import SplashScreen from "./src/screens/SplashScreen";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
@@ -22,7 +21,7 @@ export default function App() {
           >
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="SplashScreen" component={SplashScreen} />
-            <Stack.Screen name="Home" component={Home} />
+         
             <Stack.Screen name="GreenScreen" component={GreenScreen} />
             <Stack.Screen name="RedScreen" component={RedScreen} />
             <Stack.Screen name="BlueScreen" component={BlueScreen} />

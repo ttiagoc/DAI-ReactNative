@@ -9,7 +9,7 @@ export default function SplashScreen({navigation}) {
 
   const verificarInicioSesion = async() => {
     if(await usuarioService.automaticlogin()){
-      navigation.navigate("Home");
+      navigation.navigate("BlueScreen");
     }else{
       navigation.navigate("Login");
     }
