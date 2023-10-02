@@ -10,7 +10,7 @@ import {
 import Menu from '../components/Menu';
 import UsuarioService from "../services/UsuarioService";
 import BotonReutilizable from '../components/BotonReutilizable';
-
+import MessageCostants from '../constants/MessageConstants';
 
 export default function GreenScreen({navigation}) {
 
@@ -20,7 +20,7 @@ export default function GreenScreen({navigation}) {
 
     await usuarioService.eliminarCredenciales()
     //Alert.alert("AVISO:", "SE HA ELIMINADO EL STORAGE")
-    ToastAndroid.show('SE HA ELIMINADO EL STORAGE', ToastAndroid.SHORT);
+    ToastAndroid.show(MessageCostants.MSG_ASYNC_SE_HAN_ELIMINADO_LOS_DATOS, ToastAndroid.SHORT);
 
   }
 

@@ -5,6 +5,7 @@ import { SafeAreaView, StyleSheet } from 'react-native'
 import carrascal from '../../assets/carrascal.png'
 import UsuarioService from '../services/UsuarioService'
 import BotonReutilizable from '../components/BotonReutilizable';
+import MessageCostants from '../constants/MessageConstants';
 
 export default function BlueScreen({navigation}) {
 
@@ -20,10 +21,10 @@ export default function BlueScreen({navigation}) {
         await usuarioService.almacenarCredenciales(nombre, clave);
         navigation.navigate('BlueScreen');
       }else{
-        Alert.alert("ADVERTENCIA",'Usuario o contraseña incorrectos');
+        Alert.alert(MessageCostants.MSJ_ADVERTENCIA,MessageCostants.MSG_USUARIO_O_CLAVE_INVALIDA);
       }      
     }else{
-      Alert.alert("ADVERTENCIA",'Complete los campos para ingresar');
+      Alert.alert(MessageCostants.MSJ_ADVERTENCIA,MessageCostants.MSJ_CAMPOS_INCOMPLETOS);
     }
   }
 
